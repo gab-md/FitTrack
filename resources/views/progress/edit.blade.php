@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/progress/{{ $stats->id }}" method="POST">
+    <form action="/progress/{{ $stats->id }}/edit" method="POST">
         @csrf
         @method('PUT')
         <div>
@@ -14,7 +14,7 @@
         <input type="number" name="weight" id="weight" value="{{ old('weight') }}">
     </div>
     <div>
-        <label for="height">Height</label>
+        <label for="height">Height (cm)</label>
         <input type="number" name="height" id="height" value="{{ old('height') }}">
     </div>
     <div>

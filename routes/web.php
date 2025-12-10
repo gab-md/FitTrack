@@ -28,7 +28,7 @@ Route::prefix('/workouts')->group(function () {
     Route::delete('/{workouts}', [WorkoutController::class, 'destroy'])->name('workouts.destroy');
 });
 
-Route::get('', [StatController::class, 'create']);
+Route::get('/', [StatController::class, 'create']);
 
 Route::prefix('/progress')->group(function () {
     Route::get('/{stats}/edit', [WorkoutController::class, 'edit'])->name('progress.edit');
