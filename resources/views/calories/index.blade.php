@@ -32,12 +32,26 @@
             <div class="col-md-1">Carbs: {{$totalCarbs}} g</div>
             <div class="col-md-1">Fats: {{$totalFats}} g</div>
         </div>
+        <br>
+        <div>
+            <a href="/calories/create">+ Add Meal</a>
+        </div>
+        <div>
+            <h4>Today's Meal</h4>
+        </div>
         @forelse($calories as $cal)
         <div>
             <h5>{{$cal->name}}</h5>
         </div>
         <div>
-           Calories : {{$cal->calorie}} kcal | P : {{$cal->protein}} g | C : {{$cal->carbs}} g | F : {{$cal->fats}} g | Type : {{$cal->type}}
+           Calories : {{$cal->calorie}} kcal | P : {{$cal->protein}} g | C : {{$cal->carbs}} g | F : {{$cal->fats}} g | <strong>{{$cal->type}}</strong>
+        </div>
+        <div>
+            <form action="/calories/{{$cal->id}}" method="POST">
+                @csrf 
+                @method('DELETE')
+                <button type="submit">Delete</button>
+            </form>
         </div>
         @empty
             <div>No meals logged</div>

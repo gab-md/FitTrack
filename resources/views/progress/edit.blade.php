@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form action="/progress/{{ $stats->id }}/edit" method="POST">
+    <form action="/progress/{{$stats->s_id}}" method="POST">
         @csrf
         @method('PUT')
         <div>
