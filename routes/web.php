@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CalorieController;
 use App\Http\Controllers\WorkoutController;
 use App\Http\Controllers\StatController;
@@ -10,9 +11,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard', ['calories' => $calories]);
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard', ['calories' => $calories]);
+// });
+
+// testing
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::prefix('/calories')->group(function () {
     Route::get('', [CalorieController::class, 'index'])->name('calories.index');
